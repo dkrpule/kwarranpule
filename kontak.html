@@ -3,232 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontak - Kwarran Pule</title>
+  <title>Kegiatan - Kwarran Pule</title>
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --primary: #8c6239;
+      --secondary: #f0a500;
+      --bg-light: #fff9f2;
+      --text-dark: #3e2f1c;
+      --text-light: #f5f1e9;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff9f2;
-      color: #3e2f1c;
+
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
     header {
-      background: #8c6239;
-      color: white;
-      padding: 1rem 2rem;
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .container-header {
+      max-width: 1100px;
+      margin: auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
     }
 
-    .logo-back {
+    .site-title {
+      font-size: 1.6rem;
       font-weight: bold;
-      font-size: 1.2rem;
-      text-decoration: none;
       color: white;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.5rem;
+      text-decoration: none;
+      user-select: none;
     }
 
     nav a {
-      color: white;
+      margin-left: 1.5rem;
       text-decoration: none;
-      font-weight: 600;
+      color: white;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+      user-select: none;
     }
 
+    nav a:hover,
     nav a.active {
-      text-decoration: underline;
+      background: var(--secondary);
+      color: var(--text-dark);
+      font-weight: bold;
     }
 
     main {
-      max-width: 800px;
-      margin: 2rem auto;
+      max-width: 1000px;
+      margin: 3rem auto;
       padding: 0 1rem;
     }
 
     h1 {
       text-align: center;
-      color: #7b4f2a;
-      margin-bottom: 1.5rem;
-    }
-
-    .kontak-info {
-      text-align: center;
+      color: var(--primary);
       margin-bottom: 2rem;
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: 2rem;
     }
 
-    form {
-      background: #fdf6ec;
-      border: 1px solid #d9c7a4;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(140, 98, 57, 0.1);
+    section {
+      margin-bottom: 3rem;
     }
 
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      color: #7b4f2a;
+    section h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid var(--secondary);
+      padding-bottom: 0.3rem;
+      max-width: fit-content;
     }
 
-    input, textarea {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid #cbb593;
-      border-radius: 6px;
+    .kegiatan-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .kegiatan-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       font-size: 1rem;
-      font-family: inherit;
+      color: #4a3a21;
     }
 
-    /* Tambahan kecil supaya tombol jelas tampil */
-    button {
-      background: #8c6239;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin-top: 0.5rem; /* agar tidak menempel ke textarea */
-      display: inline-block; /* pastikan tampil */
-    }
-
-    button:hover {
-      background: #6e4a28;
+    .kegiatan-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     footer {
-      text-align: center;
+      margin-top: 4rem;
       padding: 1.5rem 1rem;
-      background: #7b4f2a;
-      color: #f5f1e9;
-      margin-top: 3rem;
+      text-align: center;
+      background: var(--primary);
+      color: var(--text-light);
+      font-size: 0.95rem;
       user-select: none;
     }
 
+    .update-note {
+      font-style: italic;
+      color: #a18562;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     /* ===== Responsif untuk layar kecil (mobile) ===== */
-    @media (max-width: 600px) {
-      header {
+    @media (max-width: 640px) {
+      .container-header {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1rem;
+        padding: 0.75rem 1rem;
       }
 
-      .logo-back {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
+      .site-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
       }
 
       nav {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 0;
-        gap: 0.5rem;
         width: 100%;
+        margin-top: 0.3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
 
       nav a {
-        font-size: 1rem;
-        padding: 6px 0;
+        margin-left: 0;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        text-align: center;
+        border-radius: 8px;
       }
 
       main {
-        margin: 1.5rem auto;
+        margin: 2rem auto;
         padding: 0 1rem;
         max-width: 95%;
       }
 
-      form {
-        padding: 1.5rem 1rem;
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
       }
 
-      button {
-        width: 100%;
-        padding: 1rem;
-        font-size: 1.1rem;
+      section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+        border-bottom-width: 2px;
+      }
+
+      .kegiatan-list {
+        grid-template-columns: 1fr; /* satu kolom supaya mudah dibaca */
+        gap: 1.2rem;
+      }
+
+      .kegiatan-item {
+        font-size: 0.95rem;
+        padding: 1.1rem 1.2rem;
+      }
+
+      .update-note {
+        font-size: 0.85rem;
+        max-width: 100%;
+        padding: 0 0.8rem;
+      }
+
+      footer {
+        font-size: 0.85rem;
+        padding: 1rem 0.8rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="logo-back">← Beranda Kwarran Pule</a>
+<header>
+  <div class="container-header">
+    <a href="index.html" class="site-title">Kwarran Pule</a>
     <nav>
       <a href="index.html#tentang">Tentang</a>
       <a href="organisasi.html">Organisasi</a>
-      <a href="kegiatan.html">Kegiatan</a>
-      <a href="berita.html">Berita</a>
-      <a href="kontak.html" class="active">Kontak</a>
+      <a href="kegiatan.html" class="active">Kegiatan</a>
+      <a href="index.html#kontak">Kontak</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <h1>Hubungi Kami</h1>
+<main>
+  <h1>Kegiatan Kwarran Pule</h1>
 
-    <div class="kontak-info">
-      <p>Silakan hubungi kami untuk pertanyaan, kerja sama, atau informasi kegiatan Gerakan Pramuka di wilayah Pule.</p>
-      <p><strong>📍 Alamat:</strong><br>
-        Sekretariat Kwarran Pule<br>
-        Jl. Raya Pule, Trenggalek Km 20, Jawa Timur
-      </p>
-      <p><strong>✉️ Email:</strong><br>
-        <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a>
-      </p>
-      <p><strong>📱 WhatsApp:</strong><br>
-        <a href="https://wa.me/62822441110365" target="_blank">+62 822-4411-0365</a>
-      </p>
+  <section>
+    <h2>Urusan Siaga</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">Pesta Siaga</div>
+      <div class="kegiatan-item">Bazar Siaga Persari</div>
+      <div class="kegiatan-item">Pemantapan Calon Siaga Garuda</div>
+      <div class="kegiatan-item">Pelantikan Siaga Garuda</div>
     </div>
+  </section>
 
-    <form onsubmit="kirimPesanWA(event)">
-      <label for="nama">Nama</label>
-      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
+  <section>
+    <h2>Urusan Penggalang</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">LGP3 Penggalang SD/MI</div>
+      <div class="kegiatan-item">Lomba Tingkat II</div>
+      <div class="kegiatan-item">Jambore Ranting</div>
+      <div class="kegiatan-item">Pemantapan Calon Penggalang Garuda</div>
+      <div class="kegiatan-item">Pelantikan Penggalang Garuda</div>
+    </div>
+  </section>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Masukkan email aktif" required />
+  <section>
+    <h2>Urusan Penegak</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">Latihan Gabungan Penegak</div>
+      <div class="kegiatan-item">Perkemahan Wirakarya Pule</div>
+      <div class="kegiatan-item">Giat Prestasi Penegak Tingkat Daerah</div>
+      <div class="kegiatan-item">Napak Tilas Jendral Sudirman</div>
+      <div class="kegiatan-item">Peran Saka Daerah</div>
+      <div class="kegiatan-item">Pemantapan Calon Penegak Garuda</div>
+      <div class="kegiatan-item">Pelantikan Penegak Garuda</div>
+    </div>
+  </section>
 
-      <label for="pesan">Pesan</label>
-      <textarea id="pesan" name="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
+  <section>
+    <h2>Urusan Pembinaan Anggota Dewasa</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">Gelang Ajar</div>
+      <div class="kegiatan-item">KMD</div>
+      <div class="kegiatan-item">Karang Pamitran Pembina SD/MI</div>
+    </div>
+  </section>
 
-      <button type="submit">Kirim via WhatsApp</button>
-    </form>
-  </main>
+  <p class="update-note">
+   "Jadwal dan kegiatan dapat mengalami perubahan sewaktu-waktu sesuai dengan kebijakan dan kondisi yang ditetapkan oleh Pimpinan Kwarran Pule."
+  </p>
+</main>
 
-  <footer>
-    &copy; 2025 Kwarran Pule - Gerakan Pramuka | Developed by TIM IT Kwarran Pule
-  </footer>
-
-  <script>
-    function kirimPesanWA(event) {
-      event.preventDefault();
-
-      const nama = document.getElementById("nama").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const pesan = document.getElementById("pesan").value.trim();
-      const noWA = "6282244110365"; // ← Ganti sesuai nomor resmi Kwarran Pule
-
-      const teks = `Halo Kwarran Pule,%0A%0ASaya *${nama}* (${email}) ingin menyampaikan:%0A%0A${pesan}`;
-      const url = `https://wa.me/${noWA}?text=${teks}`;
-
-      window.open(url, "_blank");
-    }
-  </script>
+<footer>
+  &copy; 2025 Kwarran Pule - Gerakan Pramuka | Developed by Tim IT kwarran Pule
+</footer>
 
 </body>
 </html>
