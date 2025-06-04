@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Berita - Kwarran Pule</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f6f1;
+      color: #2d2b29;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #6b4f3a;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-back {
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+      color: #f0d9b5;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5a3922;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+    }
+
+    .berita-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .berita-item {
+      display: flex;
+      background-color: #fff;
+      border: 1px solid #e2d9c7;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .berita-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .berita-img {
+      width: 130px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 1.2rem;
+    }
+
+    .berita-content {
+      flex: 1;
+    }
+
+    .berita-content h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: #503420;
+    }
+
+    .berita-content time {
+      display: block;
+      font-size: 0.85rem;
+      color: #998264;
+      margin: 0.3rem 0 0.8rem;
+    }
+
+    .berita-content p {
+      font-size: 0.95rem;
+      color: #3e352a;
+      margin-bottom: 0.5rem;
+    }
+
+    .read-more {
+      font-weight: bold;
+      color: #6b4f3a;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .read-more:hover {
+      color: #a05c2b;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #503420;
+      color: #e8ddd0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 1rem;
+      }
+
+      .berita-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .berita-img {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .berita-content {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo-back">← Beranda Kwarran Pule</a>
+    <nav>
+      <a href="index.html#tentang">Tentang</a>
+      <a href="organisasi.html">Organisasi</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="berita.html" class="active">Berita</a>
+      <a href="index.html#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Berita Terbaru Kwarran Pule</h1>
+
+    <section class="berita-list">
+      <article class="berita-item">
+        <img src="gambar5.jpeg" alt="Sidparcab Trenggalek" class="berita-img" />
+        <div class="berita-content">
+          <h3>DKR Pule Hadiri Sidparcab Trenggalek</h3>
+          <time datetime="2025-06-15">18 April 2025</time>
+          <p>Dewan Kerja Ranting Pule menghadiri kegiatan Sidparcab Kabupaten Trenggalek dengan semangat kontribusi.</p>
+          <a href="berita detail1.html" class="read-more">Baca selengkapnya →</a>
+        </div>
+      </article>
+
+      <article class="berita-item">
+        <img src="gambar4.jpeg" alt="Pelantikan Pramuka Garuda" class="berita-img" />
+        <div class="berita-content">
+          <h3>Kwarran Pule Lantik 670 Pramuka Siaga Garuda</h3>
+          <time datetime="2025-05-10">10 Mei 2025</time>
+          <p>Momentum kebanggaan! Sebanyak 670 anggota Pramuka Siaga resmi dilantik menjadi Pramuka Garuda.</p>
+          <a href="berita detail2.html" class="read-more">Baca selengkapnya →</a>
+        </div>
+      </article>
+
+      <article class="berita-item">
+        <img src="gambar6.jpeg" alt="Aksi Peduli Longsor" class="berita-img" />
+        <div class="berita-content">
+          <h3>DKR Pule Bantu Warga Bersihkan Longsor di Joho</h3>
+          <time datetime="2025-07-01">1 Juli 2025</time>
+          <p>DKR Pule hadir dan turun langsung membantu warga membersihkan material longsor di Desa Joho.</p>
+          <a href="berita detail3.html" class="read-more">Baca selengkapnya →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Kwarran Pule - Gerakan Pramuka<br />
+    Dikembangkan oleh Tim IT Kwarran Pule
+  </footer>
+
+</body>
+</html>

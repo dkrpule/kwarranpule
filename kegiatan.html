@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kegiatan - Kwarran Pule</title>
+  <style>
+    :root {
+      --primary: #8c6239;
+      --secondary: #f0a500;
+      --bg-light: #fff9f2;
+      --text-dark: #3e2f1c;
+      --text-light: #f5f1e9;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .container-header {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--secondary);
+      color: var(--text-dark);
+      font-weight: bold;
+    }
+
+    @media (max-width: 640px) {
+      .container-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid var(--secondary);
+      padding-bottom: 0.3rem;
+      max-width: fit-content;
+    }
+
+    .kegiatan-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .kegiatan-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1rem;
+      color: #4a3a21;
+    }
+
+    .kegiatan-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background: var(--primary);
+      color: var(--text-light);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    .update-note {
+      font-style: italic;
+      color: #a18562;
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container-header">
+    <a href="index.html" class="site-title">Kwarran Pule</a>
+    <nav>
+      <a href="index.html#tentang">Tentang</a>
+      <a href="organisasi.html">Organisasi</a>
+      <a href="kegiatan.html" class="active">Kegiatan</a>
+      <a href="index.html#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Kegiatan Kwarran Pule</h1>
+
+  <section>
+    <h2>Urusan Siaga</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">Pesta Siaga</div>
+      <div class="kegiatan-item">Bazar Siaga Persari</div>
+      <div class="kegiatan-item">Pemantapan Calon Siaga Garuda</div>
+      <div class="kegiatan-item">Pelantikan Siaga Garuda</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Urusan Penggalang</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">LGP3 Penggalang SD/MI</div>
+      <div class="kegiatan-item">Lomba Tingkat II</div>
+      <div class="kegiatan-item">Jambore Ranting</div>
+      <div class="kegiatan-item">Pemantapan Calon Penggalang Garuda</div>
+      <div class="kegiatan-item">Pelantikan Penggalang Garuda</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Urusan Penegak</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">Latihan Gabungan Penegak</div>
+      <div class="kegiatan-item">Perkemahan Wirakarya Pule</div>
+      <div class="kegiatan-item">Giat Prestasi Penegak Tingkat Daerah</div>
+      <div class="kegiatan-item">Napak Tilas Jendral Sudirman</div>
+      <div class="kegiatan-item">Peran Saka Daerah</div>
+      <div class="kegiatan-item">Pemantapan Calon Penegak Garuda</div>
+      <div class="kegiatan-item">Pelantikan Penegak Garuda</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Urusan Pembinaan Anggota Dewasa</h2>
+    <div class="kegiatan-list">
+      <div class="kegiatan-item">Gelang Ajar</div>
+      <div class="kegiatan-item">KMD</div>
+      <div class="kegiatan-item">Karang Pamitran Pembina SD/MI</div>
+    </div>
+  </section>
+
+  <p class="update-note">
+   "Jadwal dan kegiatan dapat mengalami perubahan sewaktu-waktu sesuai dengan kebijakan dan kondisi yang ditetapkan oleh Pimpinan Kwarran Pule."
+  </p>
+</main>
+
+<footer>
+  &copy; 2025 Kwarran Pule - Gerakan Pramuka | Developed by Tim IT kwarran Pule
+</footer>
+
+</body>
+</html>
