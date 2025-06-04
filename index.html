@@ -1,347 +1,177 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kwarran Pule - Gerakan Pramuka Modern</title>
-<style>
-  /* Reset & base */
-  *, *::before, *::after {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff9f2;
-    color: #3e2f1c;
-    scroll-behavior: smooth;
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* Navbar */
-  header {
-    position: fixed;
-    width: 100%;
-    background: rgba(140, 98, 57, 0.85);
-    backdrop-filter: saturate(180%) blur(8px);
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: background-color 0.4s ease;
-    z-index: 99;
-  }
-  header.scrolled {
-    background-color: #7b4f2a;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-  }
-  .logo {
-    font-weight: 900;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.8rem;
-  }
-  nav ul li a {
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-  }
-  nav ul li a:hover,
-  nav ul li a.active {
-    background: #f0a500;
-    color: #3e2f1c;
-  }
-
-  /* Hero Section */
-  .hero {
-    height: 100vh;
-    background: url('images/kegiatan-1.jpg') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
-    position: relative;
-    color: #fff;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(140, 98, 57, 0.75);
-    z-index: 0;
-  }
-  .hero-content {
-    position: relative;
-    max-width: 650px;
-    z-index: 1;
-    animation: fadeUp 1s ease forwards;
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beranda - Kwarran Pule</title>
+  <style>
+    :root {
+      --primary: #8c6239;
+      --secondary: #f0a500;
+      --bg-light: #fff9f2;
+      --text-dark: #3e2f1c;
+      --text-light: #fefefe;
     }
-  }
-  .hero-content h1 {
-    font-size: 3.2rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 4px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-  }
-  .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 1px 5px rgba(0,0,0,0.6);
-  }
-  .btn-primary {
-    background-color: #f0a500;
-    color: #3e2f1c;
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.4);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  .btn-primary:hover {
-    box-shadow: 0 8px 20px rgba(240, 165, 0, 0.7);
-    transform: translateY(-3px);
-  }
 
-  /* Sections */
-  section {
-    padding: 4rem 2rem;
-    max-width: 1100px;
-    margin: auto;
-  }
-  section h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #7b4f2a;
-    letter-spacing: 1px;
-  }
-
-  /* Kegiatan Grid */
-  .kegiatan-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
-    gap: 2rem;
-  }
-  .kegiatan-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(140,98,57,0.12);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .kegiatan-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 40px rgba(140,98,57,0.25);
-  }
-  .kegiatan-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  .kegiatan-content {
-    padding: 1.2rem 1.5rem;
-  }
-  .kegiatan-content h3 {
-    margin-bottom: 0.7rem;
-    color: #8c6239;
-  }
-  .kegiatan-content p {
-    color: #555;
-    font-size: 0.95rem;
-  }
-
-  /* Footer */
-  footer {
-    background: #7b4f2a;
-    color: #f5f1e9;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 3rem;
-    user-select: none;
-  }
-  footer .social {
-    margin: 0.8rem 0 0;
-  }
-  footer .social a {
-    margin: 0 0.6rem;
-    display: inline-block;
-    color: #f5f1e9;
-    font-size: 1.4rem;
-    transition: color 0.3s ease;
-  }
-  footer .social a:hover {
-    color: #f0a500;
-  }
-
-  /* Responsive */
-  @media (max-width: 500px) {
-    .hero-content h1 {
-      font-size: 2.2rem;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .hero-content p {
-      font-size: 1rem;
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
-  }
-</style>
-<!-- Icons CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    header {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .container-header {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .site-title {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--secondary);
+      color: var(--text-dark);
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: linear-gradient(145deg, var(--primary), #aa7b52);
+      color: var(--text-light);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 0.3rem;
+      font-size: 1.4rem;
+    }
+
+    .konten {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 1.5rem;
+      text-align: center;
+      background: var(--primary);
+      color: var(--text-light);
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header id="navbar">
-  <div class="logo">Kwarran Pule</div>
-  <nav>
-    <ul>
-      <li><a href="#hero" class="active">Beranda</a></li>
-      <li><a href="#tentang">Tentang</a></li>
-      <li><a href="organisasi.html">Organisasi</a></li>
-      <li><a href="berita.html">Berita</a></li>
-      <li><a href="galeri.html">Galeri</a></li>
-      <li><a href="kontak.html">Kontak</a></li>
-    </ul>
-  </nav>
+<header>
+  <div class="container-header">
+    <a href="index.html" class="site-title">Kwarran Pule</a>
+    <nav>
+      <a href="#tentang" class="active">Beranda</a>
+      <a href="organisasi.html">Organisasi</a>
+      <a href="kegiatan.html">Kegiatan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero" id="hero" style="
-  background: 
-    linear-gradient(
-      rgba(140, 98, 57, 0.7), 
-      rgba(140, 98, 57, 0.7)
-    ),
-    url('gambar1.jpeg') center center/cover no-repeat;
-  filter: brightness(0.9);
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-">
-  <div class="hero-content" style="z-index: 2; max-width: 650px; padding: 0 1rem;">
-    <h1 style="font-size: 3.2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.7);">GERAKAN PRAMUKA KWARTIR RANTING PULE</h1>
-    <p style="font-size: 1.3rem; margin-bottom: 1.5rem; text-shadow: 0 1px 5px rgba(0,0,0,0.6);">Mengabdi Tanpa Henti, Berkarya untuk Negeri</p>
-    <a href="#kegiatan" class="btn-primary" style="
-      background-color: #f0a500;
-      color: #3e2f1c;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 5px 15px rgba(240, 165, 0, 0.4);
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    ">Lihat Kegiatan</a>
-  </div>
-</section>
+<div class="hero">
+  <h1>Selamat Datang di Kwarran Pule</h1>
+  <p>Website resmi Kwartir Ranting Gerakan Pramuka Kecamatan Pule – tempat berbagi informasi kegiatan dan organisasi Pramuka setempat.</p>
+</div>
 
 <section id="tentang">
-  <h2>Tentang Kami</h2>
-  <p style="max-width:700px; margin:auto; text-align:center; color:#5a3f11; font-size:1.1rem; line-height:1.5;">
-    Kwarran Pule adalah organisasi gerakan Pramuka yang aktif membina generasi muda untuk menjadi karakter pemimpin bangsa melalui kegiatan pendidikan dan sosial yang bermakna.
-  </p>
-</section>
-
-<section id="kegiatan">
-  <h2>Kegiatan Terbaru</h2>
-  <div class="kegiatan-grid">
-    <div class="kegiatan-card">
-      <img src="gambar2.jpg" alt="Pelatihan Dasar Pramuka" />
-      <div class="kegiatan-content">
-        <h3>Sidparcab Trenggalek</h3>
-        <p>Sidparcab Trenggalek 17 April 2025 di Balai Desa Gembleb.</p>
-      </div>
-    </div>
-    <div class="kegiatan-card">
-      <img src="gambar3.jpeg" alt="Jambore Ranting" />
-      <div class="kegiatan-content">
-        <h3>Gelar Karya Pramuka Garuda</h3>
-        <p>Kwarran Pule Turut Seta Dalam Kegiatan Gelar Karya Pramuka Garuda.</p>
-      </div>
-    </div>
-    <div class="kegiatan-card">
-      <img src="gambar4.jpeg" alt="Bakti Sosial" />
-      <div class="kegiatan-content">
-        <h3>Pelantikan Pramuka Siaga Garuda</h3>
-        <p>Kwarran Pule Lantik 670 Pramuka Siaga Garuda</p>
-      </div>
-    </div>
+  <h2>Tentang Kwarran Pule</h2>
+  <div class="konten">
+    <p>
+      Kwarran Pule adalah struktur organisasi Gerakan Pramuka tingkat kecamatan yang berperan penting dalam mengoordinasikan kegiatan kepramukaan di wilayah Pule. Kami mendukung pendidikan karakter melalui berbagai kegiatan yang menyenangkan, menantang, dan mendidik bagi peserta didik dari berbagai golongan usia.
+    </p>
   </div>
 </section>
 
 <section id="kontak">
-  <h2>Hubungi Kami</h2>
-  <p style="text-align:center; max-width:600px; margin:auto; margin-bottom:1rem;">
-    Sekretariat Kwarran Pule — Pule Trenggalek No.20, Pule, Indonesia<br/>
-    Email: <a href="mailto:info@kwarranpule.or.id">Kwartirantingpule@gmail.com</a> | Telp: 082-244-110-365
-  </p>
-  <div style="text-align:center;">
-    <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social"><i class="fab fa-facebook-square"></i></a>
-    <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social"><i class="fab fa-instagram-square"></i></a>
-    <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social"><i class="fab fa-twitter-square"></i></a>
+  <h2>Kontak</h2>
+  <div class="konten">
+    <p>Email: <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/dkrpule" target="_blank">@dkrpule</a></p>
+    <p>Alamat Sekretariat: Jl. Raya Pule, Kabupaten Trenggalek</p>
   </div>
 </section>
 
 <footer>
-  &copy; 2025 Kwarran Pule - Gerakan Pramuka | Developed by Tim IT Kwarran Pule
+  &copy; 2025 Kwarran Pule - Gerakan Pramuka
 </footer>
-
-<script>
-  // Navbar background change on scroll
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 50){
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // Active link highlight on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav ul li a');
-
-  window.addEventListener('scroll', () => {
-    let scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 70;
-      const sectionId = section.getAttribute('id');
-
-      if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if(link.getAttribute('href') === '#' + sectionId){
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
