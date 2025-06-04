@@ -49,6 +49,7 @@
       font-weight: bold;
       color: white;
       text-decoration: none;
+      user-select: none;
     }
 
     nav a {
@@ -59,6 +60,7 @@
       padding: 6px 12px;
       border-radius: 6px;
       transition: 0.3s;
+      user-select: none;
     }
 
     nav a:hover,
@@ -66,22 +68,6 @@
       background: var(--secondary);
       color: var(--text-dark);
       font-weight: bold;
-    }
-
-    @media (max-width: 640px) {
-      .container-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 0.5rem;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 1rem;
-      }
     }
 
     main {
@@ -150,6 +136,75 @@
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    /* ===== Responsif untuk layar kecil (mobile) ===== */
+    @media (max-width: 640px) {
+      .container-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 1rem;
+      }
+
+      .site-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+      }
+
+      nav {
+        width: 100%;
+        margin-top: 0.3rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      nav a {
+        margin-left: 0;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        text-align: center;
+        border-radius: 8px;
+      }
+
+      main {
+        margin: 2rem auto;
+        padding: 0 1rem;
+        max-width: 95%;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+      }
+
+      section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+        border-bottom-width: 2px;
+      }
+
+      .kegiatan-list {
+        grid-template-columns: 1fr; /* satu kolom supaya mudah dibaca */
+        gap: 1.2rem;
+      }
+
+      .kegiatan-item {
+        font-size: 0.95rem;
+        padding: 1.1rem 1.2rem;
+      }
+
+      .update-note {
+        font-size: 0.85rem;
+        max-width: 100%;
+        padding: 0 0.8rem;
+      }
+
+      footer {
+        font-size: 0.85rem;
+        padding: 1rem 0.8rem;
+      }
     }
   </style>
 </head>
