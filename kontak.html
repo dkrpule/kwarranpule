@@ -119,16 +119,46 @@
       user-select: none;
     }
 
+    /* ===== Responsif untuk layar kecil (mobile) ===== */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .logo-back {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
       }
 
       nav {
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 1rem;
+        margin-top: 0;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      nav a {
+        font-size: 1rem;
+        padding: 6px 0;
+      }
+
+      main {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+        max-width: 95%;
+      }
+
+      form {
+        padding: 1.5rem 1rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -150,18 +180,18 @@
     <h1>Hubungi Kami</h1>
 
     <div class="kontak-info">
-  <p>Silakan hubungi kami untuk pertanyaan, kerja sama, atau informasi kegiatan Gerakan Pramuka di wilayah Pule.</p>
-  <p><strong>📍 Alamat:</strong><br>
-    Sekretariat Kwarran Pule<br>
-    Jl. Raya Pule, Trenggalek Km 20, Jawa Timur
-  </p>
-  <p><strong>✉️ Email:</strong><br>
-    <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a>
-  </p>
-  <p><strong>📱 WhatsApp:</strong><br>
-    <a href="https://wa.me/62822441110365" target="_blank">+62 822-4411-0365</a>
-  </p>
-</div>
+      <p>Silakan hubungi kami untuk pertanyaan, kerja sama, atau informasi kegiatan Gerakan Pramuka di wilayah Pule.</p>
+      <p><strong>📍 Alamat:</strong><br>
+        Sekretariat Kwarran Pule<br>
+        Jl. Raya Pule, Trenggalek Km 20, Jawa Timur
+      </p>
+      <p><strong>✉️ Email:</strong><br>
+        <a href="mailto:kwarranpule@gmail.com">kwarranpule@gmail.com</a>
+      </p>
+      <p><strong>📱 WhatsApp:</strong><br>
+        <a href="https://wa.me/62822441110365" target="_blank">+62 822-4411-0365</a>
+      </p>
+    </div>
 
     <form onsubmit="kirimPesanWA(event)">
       <label for="nama">Nama</label>
