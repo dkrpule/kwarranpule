@@ -1,109 +1,141 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Organisasi - Kwarran Pule</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #fff9f2;
-    color: #3e2f1c;
-    margin: 0; padding: 0;
-  }
-  header {
-    background: #8c6239;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  }
-  .container-header {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0.8rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .site-title {
-    color: white;
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-decoration: none;
-    user-select: none;
-    transition: opacity 0.3s ease;
-  }
-  .site-title:hover {
-    opacity: 0.8;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 1.8rem;
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 6px 8px;
-    border-radius: 6px;
-    transition: background-color 0.25s ease, color 0.25s ease;
-  }
-  nav a:hover {
-    background-color: #f0a500;
-    color: #3e2f1c;
-  }
-  nav a.active {
-    background-color: #f0a500;
-    color: #3e2f1c;
-    font-weight: 700;
-  }
-  @media(max-width: 600px) {
-    .container-header {
-      flex-direction: column;
-      gap: 0.5rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organisasi - Kwarran Pule</title>
+  <style>
+    :root {
+      --primary: #8c6239;
+      --secondary: #f0a500;
+      --bg-light: #fff9f2;
+      --text-dark: #3e2f1c;
+      --text-light: #fefefe;
     }
-    nav a {
-      margin-left: 0;
-      margin-right: 1rem;
-    }
-  }
 
-  main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  h1 {
-    text-align: center;
-    color: #7b4f2a;
-    margin-bottom: 2rem;
-  }
-  section {
-    background: white;
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(140, 98, 57, 0.15);
-    margin-bottom: 2rem;
-  }
-  h2 {
-    color: #8c6239;
-    margin-bottom: 0.8rem;
-  }
-  p {
-    line-height: 1.6;
-  }
-  ul {
-    padding-left: 1.2rem;
-    line-height: 1.6;
-  }
-  footer {
-    text-align: center;
-    padding: 1.5rem 1rem;
-    background: #7b4f2a;
-    color: #f5f1e9;
-    margin-top: 3rem;
-    user-select: none;
-  }
-</style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      font-size: 16px;
+    }
+
+    header {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .container-header {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .site-title {
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--secondary);
+      color: var(--text-dark);
+      font-weight: bold;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .konten {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-size: 0.95rem;
+    }
+
+    .struktur {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .struktur ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .struktur li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      text-align: center;
+      background: var(--primary);
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      nav a {
+        font-size: 0.85rem;
+        padding: 4px 8px;
+      }
+
+      .site-title {
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      .konten {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -111,45 +143,33 @@
   <div class="container-header">
     <a href="index.html" class="site-title">Kwarran Pule</a>
     <nav>
-      <a href="index.html#tentang">Tentang</a>
+      <a href="index.html">Beranda</a>
       <a href="organisasi.html" class="active">Organisasi</a>
       <a href="kegiatan.html">Kegiatan</a>
-      <a href="index.html#kontak">Kontak</a>
+      <a href="#kontak">Kontak</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <h1>Organisasi Kwarran Pule</h1>
-
-  <section>
-    <h2>Profil Kwarran Pule</h2>
-    <p>
-      Kwartir Ranting (Kwarran) Pule merupakan salah satu bagian penting dalam Gerakan Pramuka di wilayah Kecamatan Pule. 
-      Kwarran Pule berkomitmen untuk membina dan mengembangkan potensi generasi muda melalui kegiatan pramuka yang mendidik, disiplin, dan mengutamakan semangat kebersamaan.
-    </p>
-  </section>
-
-  <section>
-    <h2>Visi</h2>
-    <p>
-      Menjadi organisasi kepanduan yang unggul dalam membentuk karakter generasi muda yang beriman, berakhlak mulia, mandiri, dan cinta tanah air.
-    </p>
-  </section>
-
-  <section>
-    <h2>Misi</h2>
+<section>
+  <h1>Struktur Organisasi Kwarran Pule</h1>
+  <div class="konten struktur">
     <ul>
-      <li>Membina anggota pramuka dengan nilai-nilai kepramukaan yang sesuai dengan Pancasila dan Undang-Undang Kepanduan.</li>
-      <li>Mendorong pengembangan bakat, keterampilan, dan kepemimpinan bagi anggota.</li>
-      <li>Mengadakan kegiatan yang mendidik, kreatif, dan inovatif untuk memperkuat solidaritas dan rasa tanggung jawab sosial.</li>
-      <li>Menguatkan sinergi antara anggota, pembina, dan masyarakat untuk mendukung perkembangan pramuka di wilayah Pule.</li>
+      <li><strong>Ketua Kwarran:</strong> Kak Ahmad Subkhi, S.Pd</li>
+      <li><strong>Wakil Ketua:</strong> Kak Siti Nurjanah</li>
+      <li><strong>Sekretaris:</strong> Kak Budi Santoso</li>
+      <li><strong>Bendahara:</strong> Kak Rina Lestari</li>
+      <li><strong>Andalan Urusan Siaga:</strong> Kak Dewi Wulandari</li>
+      <li><strong>Andalan Urusan Penggalang:</strong> Kak Sugeng Riyanto</li>
+      <li><strong>Andalan Urusan Penegak:</strong> Kak Miftahul Huda</li>
+      <li><strong>Andalan Urusan Dewasa:</strong> Kak Rahayu Murni</li>
+      <li><strong>Dewan Kerja Ranting (DKR):</strong> Ketua - Aditya Pratama</li>
     </ul>
-  </section>
-</main>
+  </div>
+</section>
 
 <footer>
-  &copy; 2025 Kwarran Pule - Gerakan Pramuka | Developed by Tim IT Kwarran Pule
+  &copy; 2025 Kwarran Pule - Gerakan Pramuka
 </footer>
 
 </body>
