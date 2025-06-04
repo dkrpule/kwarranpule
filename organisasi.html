@@ -56,43 +56,6 @@
     color: #3e2f1c;
     font-weight: 700;
   }
-  @media(max-width: 600px) {
-    .container-header {
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 0.8rem 1rem;
-    }
-    nav a {
-      margin-left: 0;
-      margin-right: 1rem;
-      font-size: 1rem;
-      padding: 5px 8px;
-    }
-    body {
-      font-size: 14px;
-      padding: 0 0.5rem;
-    }
-    main {
-      max-width: 100%;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
-    }
-    h1 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.6rem;
-    }
-    p, ul {
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-    ul {
-      padding-left: 1rem;
-    }
-  }
 
   main {
     max-width: 800px;
@@ -129,6 +92,48 @@
     color: #f5f1e9;
     margin-top: 3rem;
     user-select: none;
+  }
+
+  /* Responsive untuk layar kecil (HP) */
+  @media(max-width: 600px) {
+    .container-header {
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem; /* padding header dikurangi */
+    }
+    .site-title {
+      font-size: 1.2rem; /* font judul header diperkecil */
+    }
+    nav a {
+      margin-left: 0;
+      margin-right: 1rem;
+      font-size: 0.9rem; /* font link diperkecil */
+      padding: 4px 6px; /* padding link diperkecil */
+    }
+    body {
+      font-size: 14px;
+      padding: 0 0.5rem;
+    }
+    main {
+      max-width: 100%;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+    }
+    p, ul {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    ul {
+      padding-left: 1rem;
+    }
   }
 </style>
 </head>
